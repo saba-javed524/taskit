@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
+const kBlueColor = Color(0xff222952);
 const kTextTopStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 50,
+    color: Colors.white,
+    fontSize: 50,
+    fontFamily: 'Shadows',
+    shadows: [
+      Shadow(color: Colors.white, blurRadius: 7.0, offset: Offset(0, 0))
+    ]);
+
+const kTextfieldTextStyle = TextStyle(
+  color: Color(0xff222952),
+  fontSize: 22.0,
   fontFamily: 'Shadows',
 );
 
@@ -30,3 +39,47 @@ const kBackgroundColors = RadialGradient(
     Color(0xffb3a8fe),
   ],
 );
+
+const kContainerDecoration = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.only(
+    topLeft: Radius.circular(25.0),
+    topRight: Radius.circular(25.0),
+  ),
+);
+
+const kTextFieldDecoration = InputDecoration(
+  icon: Icon(
+    Icons.alternate_email,
+    size: 30.0,
+    color: Colors.grey,
+  ),
+  hintText: 'Enter Your ID',
+  hintStyle: TextStyle(
+    fontFamily: 'Ubuntu',
+    fontSize: 20.0,
+  ),
+  border: UnderlineInputBorder(
+    borderSide: BorderSide(color: Colors.grey),
+  ),
+  focusedBorder: UnderlineInputBorder(
+    borderSide: BorderSide(color: kBlueColor),
+  ),
+);
+
+const kSignupButtonColors = [
+  Color(0xffffab4a),
+  Color(0xffffc580),
+  Color(0xffffc580),
+  Color(0xffffc580),
+  Color(0xffffab4a),
+];
+
+const kSigninButtonColors = [
+  Color(0xFF40B4EE),
+  Color(0xff56c8ff),
+  Color(0xff56c8ff),
+  Color(0xff56c8ff),
+  Color(0xff56c8ff),
+  Color(0xFF40B4EE)
+];

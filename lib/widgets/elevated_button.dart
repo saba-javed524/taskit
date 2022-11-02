@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:taskit_flutter/theme/constants.dart';
 
 class UserButton extends StatelessWidget {
-  UserButton({this.buttonTitle, this.colors});
+  UserButton({this.buttonTitle, this.colors, this.onPressed});
 
   String? buttonTitle;
   List<Color>? colors;
+  Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 5.0,
         padding: EdgeInsets.zero,

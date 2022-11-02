@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:taskit_flutter/screens/login_screen.dart';
+import 'package:taskit_flutter/screens/signup_screen.dart';
 import 'package:taskit_flutter/theme/constants.dart';
 import 'package:taskit_flutter/widgets/elevated_button.dart';
 
 class UserScreen extends StatefulWidget {
+  static String id = 'user';
   @override
   State<UserScreen> createState() => _UserScreenState();
 }
@@ -24,9 +27,8 @@ class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: kBackgroundColors,
         ),
         child: Column(
@@ -34,7 +36,7 @@ class _UserScreenState extends State<UserScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              padding: EdgeInsets.only(top: 40.0),
+              padding: const EdgeInsets.only(top: 40.0),
               child: Text(
                 'Task it!',
                 style: kTextTopStyle,
@@ -46,10 +48,7 @@ class _UserScreenState extends State<UserScreen> {
                 onTap: () {
                   toggleImageNumber();
                 },
-                child: Container(
-                  child:
-                      Image.asset('assets/images/astronaut-$imageNumber.png'),
-                ),
+                child: Image.asset('assets/images/astronaut-$imageNumber.png'),
               ),
             ),
             Expanded(
@@ -75,24 +74,17 @@ class _UserScreenState extends State<UserScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         UserButton(
-                          buttonTitle: 'Sign in',
-                          colors: [
-                            Color(0xff4abdf5),
-                            Color(0xff56c8ff),
-                            Color(0xff56c8ff),
-                            Color(0xff56c8ff),
-                            Color(0xff4abdf5),
-                          ],
-                        ),
+                            buttonTitle: 'Sign in',
+                            onPressed: () {
+                              Navigator.pushNamed(context, LoginScreen.id);
+                            },
+                            colors: kSigninButtonColors),
                         UserButton(
                           buttonTitle: 'Sign up',
-                          colors: [
-                            Color(0xffffab4a),
-                            Color(0xffffc580),
-                            Color(0xffffc580),
-                            Color(0xffffc580),
-                            Color(0xffffab4a),
-                          ],
+                          onPressed: () {
+                            Navigator.pushNamed(context, SignUpScreen.id);
+                          },
+                          colors: kSignupButtonColors,
                         ),
                       ],
                     ),
